@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <center><h1>March to the Mars</h1>
+             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest Mars Info!</a></p>
+            </center>
+        </div>
+     </div>   
+
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                    <h3>Latest Mars News</h3>
+                    <h4>{{ news[0].title }} </h4>
+                    <p>{{news[0].body}}</p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">    
+                        <h3>Featured Mars Image</h3>
+                        <img src="{{furl[0].featureURL}}" alt="Latest Featured Image" height="600" width="700">
+                </div>
+                <div class="col-md-4">
+                        <h3>Current Weather on Mars</h3>
+                        <p>{{weather[0].weather}}</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Mars Fact</h3>
+                        <table class="table table-sm">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"> </th>
+                                    <th scope="col">Value</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                 {% for g in geo%}
+                                  <tr>
+                                     <td>{{g.geoparameter}}</td>
+                                    <td>{{g.value}}</td>
+                                  </tr>
+                                 {% endfor %}
+                                </tbody>
+                              </table>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h2 class="text-center">Mars Hemisperes</h2>
+
+        <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                        <img src="{{hem[0].img_url}}" alt="{{hem[0].title}}" height="450" width="560">
+                        <small class="text-bold">{{hem[0].title}}</small>
+                    </div>
+                    <div class="col-md-6">
+                            <img src="{{hem[1].img_url}}" alt="{{hem[1].title}}" height="450" width="560">
+                            <small class="text-bold">{{hem[1].title}}</small>
+                        </div>
+                        <div class="col-md-6">
+                                <img src="{{hem[2].img_url}}" alt="{{hem[2].title}}" height="450" width="560">
+                                <small class="text-bold">{{hem[2].title}}</small>
+                            </div>
+                            <div class="col-md-6">
+                                    <img src="{{hem[3].img_url}}" alt="{{hem[3].title}}" height="450" width="560">
+                                    <small class="text-bold">{{hem[3].title}}</small>
+                                </div>
+            
+                </div>
+
+        </div>    
+        <footer> <small class="text-muted">Created by Ashish Chole</small></footer>
+</body>
+
+</html>
